@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS Extra Credit</title>
+<style type="text/css">
+   
+</style>
+</head>
+
+<body>
+    <script>
+       function problem_1() {
+        for(i = 40; i >= 10 ; i =i-2) {
+            document.write(i + "<br/>")
+        }
+       }
+
+
+       function problem_2() {
+        sum = 0
+        while (sum < 20) {
+            next_num = parseFloat(prompt("enter a number for question 2"))
+            sum = sum + next_num
+            if (sum > 20){
+                document.write("The sum has exceeded 20")
+        }
+       }
+    }
+
+       function problem_3() {
+        a = []
+        sum = 0
+        while (sum < 20) {
+            next_num = parseFloat(prompt("enter a number for question 3"))
+            a.push(next_num)
+            sum = sum + next_num
+            if (sum > 20){
+                document.write("the provided array is:")
+            document.write(a)}
+        }
+       }
+
+       function problem_4() {
+            let aa = {};
+            aa["Why Worry?"] = "Dire Straits";
+            aa["Causally cruel in the name of being honest"] = "Taylor Swift"
+            aa["Northing will harm you and nothing will stnd in your way"] = "Rolling Stones"
+            aa["Tied up Right Now"] = "Parcels"
+            aa["Mm, what'd you say?/that you only meant well/Well of course you did"] = "Imogen Heap"
+            for (song in aa) {
+                document.write(song + " by " + aa[song] + "<br/>")
+            }
+            return aa
+       }
+
+       function problem_5(aa) {
+        band_name = prompt("name a band for question 5")
+        for (song in aa) {
+            if (aa[song] == band_name){
+                document.write(song + "<br/>")
+            }
+            }       
+        }
+
+        // call all functions
+       function call_functions(){
+        document.write("<h3> Problem 1</h3>")
+        problem_1()
+        document.write("<h3> Problem 2</h3>")
+        problem_2()
+        document.write("<h3> Problem 3</h3>")
+        problem_3()
+        document.write("<h3> Problem 4</h3>")
+        aa = problem_4()
+        document.write("<h3> Problem 5</h3>")
+        problem_5(aa)
+       }
+       call_functions();
+    </script>
+
+</body>
+
+
+</html>
