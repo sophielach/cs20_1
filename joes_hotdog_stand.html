@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Joe's Hot Dogs</title>
+<style type="text/css">
+      * {margin-left: 300px; margin-top: 10px}
+      h1 {color: #a4133a; margin-top: 100px; margin-left: 0px !important}
+</style>
+</head>
+
+<body>
+
+    <h1 id="pgTitle"> Joe's Hot Dog Stand</h1>
+
+
+
+
+<script>
+       dogs_price = 4.99
+       fries_price = 3.99
+       soda_price = 1.79
+
+       numDogs = prompt("how many hot dogs do you want?")
+       numFries = prompt("how many french fries do you want?")
+       numSoda = prompt("how many sodas do you want?")
+
+       function showMoney(number) {
+        // return a string that rounds number to 2 places
+        return (Math.ceil(number * 100)/100).toString()
+       }
+       // write the orders per type of food
+       function writeOrders(numItem, price, type) {
+            sub = numItem * price
+            if (numItem > 0){
+            document.write("You ordered " + numItem + " " + type +  " at a price of " + price + " for $" + showMoney(sub) + " altogether. <br/>")
+            }
+            else {
+                document.write("You didn't order any " + type + ".")
+            }
+       }
+
+       writeOrders(numDogs, dogs_price, "hot dogs")
+       writeOrders(numFries, fries_price, "french fries")
+       writeOrders(numSoda, soda_price, "sodas")
+       document.write("<br/>")
+
+       // show subtitle
+       subtotal = dogs_price*numDogs + fries_price*numFries + soda_price*numSoda 
+       document.write("Your subtotal is: $" + showMoney(subtotal) + ".<br/><br/>")
+
+       // show discount is applicable
+       if (subtotal > 30){
+        discount = subtotal * .1
+        subtotal = subtotal - discount
+        document.write("Because your subtotal is more than $30, you have a discount of $" + showMoney(discount) + " so your new subtotal is $" + showMoney(subtotal) + ".<br/> <br/>")
+       }
+
+       // show tax and final
+       tax = subtotal * .0625
+       document.write("Your tax of 6.25% is $" + showMoney(tax) + " of tax. <br/><br/>")
+       document.write("Your final total is: $" + showMoney(subtotal-tax) + ". <br/>")
+       
+
+</script>
+
+<img src="hot_dog_stand.jpg" style="margin-left: 0"> <br\><br\><br\>
+
+</body>
+</html>
