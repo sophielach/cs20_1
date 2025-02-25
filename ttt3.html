@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe 3</title>
+
+    <!-- Internal Style Sheet-->
+<style type="text/css">
+    h1 { padding-top: 50px; font-size: 50px}
+    body { display: grid; place-items: center; background-color: #fcf7f7}
+        .board {
+                display: grid;
+                grid-template-columns:repeat(3, 115px);
+                padding-top: 40px;
+                text-align: center;
+                line-height: 100px;
+                gap: 5px; 
+
+            }  
+            
+        .board div {
+            background-color: white;
+            width: 100px;
+            height: 100px; 
+            border: 2px solid black;
+            margin:5px;
+            font-size: 80px;
+            border-radius: 3px;
+            }
+
+        .board div:hover {background-color: #d7f2ff; }
+        .announcement {
+            border: 1px solid black;
+            padding: 10px 40px;
+            font-size: 20px;
+            border-radius: 3px;
+            background-color: white
+        }
+        .startgame {
+            margin: 40px;
+            padding: 10px 40px;
+            font-size: 20px;
+            background-color: #09aee5;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+</style>
+</head>
+
+<body>
+    <h1> Tic Tac Toe</h1>
+    <div class="announcement"> Player X - it's your turn</div>
+    <div class="board">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i = 0; i < NUM_SQUARES; i++) {
+                id = "sq" + i;
+                document.write("<div class='square' id='" + id + "'></div>");
+            }
+        </script>
+    </div>
+    <div class="startgame">Start Game</div>
+
+    <script>
+        player = Math.random() > 0.5 ? "O" : "X"; // randomly choose starting player
+        // function to tell players whose turn it is
+        function announcePlayer() {
+            document.querySelector('.announcement').innerText = `Player ${player} - it's your turn`;
+        }
+
+        announcePlayer();
+
+        window.onload = function() {
+            // add listeners for all squares when clicked
+            document.querySelectorAll('.square').forEach((square) => {
+                // place value on square
+                square.addEventListener('click', () => {
+                    if (!square.innerHTML) { 
+                        square.innerHTML = player;
+                        alert('You clicked on square number ' + square.id.slice(-1));
+                        
+                        // next players turn
+                        player = (player == "X") ? "O" : "X";
+                        announcePlayer();
+                    }
+                });
+            });
+
+            // restart game, upon click
+            document.querySelector(".startgame").addEventListener('click', () => {
+                // reset starting player 
+                player = Math.random() < 0.5 ? "X" : "O";
+                announcePlayer();
+                // clear the board  
+                document.querySelectorAll('.square').forEach(square => {square.innerHTML = "";});
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe 2</title>
+
+    <!-- Internal Style Sheet-->
+<style type="text/css">
+    h1 {padding-top: 50px; font-size: 50px}
+    body { display: grid; place-items: center; background-color: #fcf7f7}
+        .board {
+                display: grid;
+                grid-template-columns:repeat(3, 115px);
+                padding-top: 40px;
+                text-align: center;
+                line-height: 100px;
+                gap: 5px; 
+
+            }  
+            
+        .board div {
+            background-color: white;
+            width: 100px;
+            height: 100px; 
+            border: 2px solid black;
+            margin:5px;
+            font-size: 80px;
+            border-radius: 3px;
+
+        }
+        .board div:hover { background-color: #d7f2ff;}
+        .announcement {
+            border: 1px solid black;
+            padding: 10px 40px;
+            font-size: 20px;
+            border-radius: 3px;
+            background-color: white
+        }
+        .startgame {
+            margin: 40px;
+            padding: 10px 40px;
+            font-size: 20px;
+            background-color: #09aee5;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+</style>
+</head>
+
+<body>
+<h1> Tic Tac Toe</h1>
+<div class="announcement"> Player X - it's your turn</div>
+<div class="board">
+    <script>
+    const NUM_SQUARES = 9;
+    for (i=0; i<NUM_SQUARES; i++)
+    {
+        id = "sq"+i;
+        document.write( "<div class='square' id='" + id + "'></div>" );
+    }
+        window.onload = function() {
+          document.getElementById("sq2").innerHTML = "X";
+          document.getElementById("sq3").innerHTML = "O";
+        };
+      </script>
+ </div> 
+<br/> <br/>
+ <div class="startgame"> Keep Playing! No one has won yet...</div>
+
+
+</body>
+</html>
